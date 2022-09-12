@@ -2,19 +2,19 @@
 
 SCRIPT_PATH="$(cd "$(dirname "$0")"; pwd -P)"
 
-g++ \
+clang++ \
   -Wfatal-errors \
-  -c $SCRIPT_PATH/src/main.cxx \
-  -o $SCRIPT_PATH/3d-game-shaders-for-beginners.o \
+  -c ./src/main.cxx \
+  -o ./3d-game-shaders-for-beginners.o \
   -std=gnu++11 \
   -O3 \
-  -I/usr/include/python3.9/ \
-  -I$P3D_INCLUDE_PATH
+  -I/usr/include/python3.10/ \
+  -I/usr/include/panda3d/
 
-g++ \
-  $SCRIPT_PATH/3d-game-shaders-for-beginners.o \
-  -o $SCRIPT_PATH/3d-game-shaders-for-beginners \
-  -L$P3D_LIB_PATH \
+clang++ \
+  ./3d-game-shaders-for-beginners.o \
+  -o ./3d-game-shaders-for-beginners \
+  -L/lib/panda3d/ \
   -lp3framework \
   -lpanda \
   -lpandafx \
